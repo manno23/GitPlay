@@ -4,5 +4,10 @@ a.out
 #Vi swap file, no need for those
 *.swp
 
+<<<<<<< HEAD
 *.pdf
 
+=======
+#Ignore the assignment pdf
+*.pdf
+>>>>>>> testing
