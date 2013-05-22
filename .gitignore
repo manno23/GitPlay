@@ -3,6 +3,7 @@ a.out
 
 #Vi swap file, no need for those
 *.swp
+rsa
 
 <<<<<<< HEAD
 *.pdf
