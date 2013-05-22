@@ -26,8 +26,10 @@
 /*
  * Implementation as found on Cryptography and Network Security
  * pg. 283
- * It runs backward so as to allow for unknown bit size, and also 
- * for the ease of use of bitwise operators
+ * It makes use of the property that large numbers can be broken
+ * into their products and the modulo taken of these individually.
+ * This is significant in RSA as the modulo of extremely large exponents
+ * are used for decryption/encryption.
  */
 
 unsigned long mod_exp(unsigned long a, unsigned long b, unsigned long n) {
