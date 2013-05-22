@@ -61,6 +61,10 @@ int rand_int(int l_bound, int u_bound, int seed) {
 	return value + l_bound;
 }
 
+/* 
+ * Takes in a seed to help with the pseudo-random calculation of
+ * the prime number being generated.
+ */
 long generate_primes(int seed) {
 
 	int is_not_prime = 1;
