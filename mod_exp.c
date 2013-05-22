@@ -32,36 +32,38 @@
  * are used for decryption/encryption.
  */
 
-unsigned long mod_exp(unsigned long a, unsigned long b, unsigned long n) {
+long long mod_exp(long long a, long long b, long long n) {
 	
-	unsigned long f = 1;
-	unsigned long e = 1;
+	long long f = 1;
+	long long e = 4294967296;	//equal to 2^32, msb set to 1
 	int i;
-	for(i=0; i<=32; i++) {
+	for(i=32; i>=0; i--) {
 		f = (f*f)%n;
-		if(b & e) 
+		if(b & e) {				//bitmask to see if bit is set
 			f = (f*a)%n;
-		e << 1;
+		} else {
+		}
+		e = e/2;				//move set bit left 1 space 
 	}
 	return f;
 }
 
 int main(int argc, char** argv) {
 
-	unsigned long message, key, modulo;
+	long long message, key, modulo;
 	
 	printf("Enter in parameters for a^b mod n... \n");
 	printf("a: ");
-	scanf("%lu", &message);
+	scanf("%llu", &message);
 	printf("b: ");
-	scanf("%lu", &key);
+	scanf("%llu", &key);
 	printf("n: ");
-	scanf("%lu", &modulo);
+	scanf("%llu", &modulo);
 
-	printf("%lu^%lu mod %lu = ", message, key, modulo);
-	unsigned long out;
+	printf("%llu^%llu mod %llu = ", message, key, modulo);
+	long long out;
 	out = mod_exp(message, key, modulo);
-	printf("%lu\n", out);
+	printf("%llu\n", out);
 	return 1;
 }
 
